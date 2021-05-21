@@ -8,4 +8,10 @@ import com.trivadis.spring.user.domain.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	Set<User> findByLastname(String lastname);
+
+	User findByFirstnameAndLastname(String firstname, String lastname);
+
+	Set<User> findByLastnameLikeOrderByLastnameDesc(String lastnameLike);
+
 }
