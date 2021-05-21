@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-@Profile("production")
-public class UserServiceImpl implements UserService {
+@Profile("test")
+public class UserServiceTestImpl implements UserService {
 
 	public List<User> getAllUsers() {
-		return Arrays.asList(new User("Guenther", "Nubert"), new User("Bud", "Spencer"), new User("Dieter", "Develop"));
+		return Arrays.asList(new User("TestGuenther", "TestNubert"));
 	}
 }
