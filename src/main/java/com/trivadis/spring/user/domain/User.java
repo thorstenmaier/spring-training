@@ -1,7 +1,13 @@
 package com.trivadis.spring.user.domain;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Users")
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String firstname;
 	private String lastname;
