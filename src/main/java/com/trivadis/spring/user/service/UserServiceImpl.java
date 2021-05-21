@@ -8,6 +8,7 @@ import com.trivadis.spring.user.repository.UserRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @Component
@@ -23,10 +24,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Monitor
+	@RolesAllowed("ADMIN")
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
+	@RolesAllowed("USER")
 	public User findUserById(Long id) {
 		return userRepository.findById(id).get();
 	}
