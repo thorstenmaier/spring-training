@@ -5,6 +5,8 @@ import com.trivadis.spring.user.domain.User;
 import java.util.List;
 
 public interface UserService {
+    User findUserById(Long id);
     List<User> getAllUsers();
-    void createUser(User user);
+    User createUser(User user);
+    void deleteUserById(Long id);
 }
