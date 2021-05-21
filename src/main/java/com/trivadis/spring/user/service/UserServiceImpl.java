@@ -1,16 +1,16 @@
 package com.trivadis.spring.user.service;
 
+import com.trivadis.spring.user.aop.Monitor;
 import com.trivadis.spring.user.domain.User;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Component
-@Profile("production")
 public class UserServiceImpl implements UserService {
 
+	@Monitor
 	public List<User> getAllUsers() {
 		return Arrays.asList(new User("Guenther", "Nubert"), new User("Bud", "Spencer"), new User("Dieter", "Develop"));
 	}
