@@ -28,12 +28,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User findUserById(Long id) {
-		return userRepository.findById(id).get();
+		return userRepository.findById(id).orElse(null);
 	}
 
 	@Transactional
-	public void createUser(User user) {
+	public User createUser(User user) {
 		logEntryRepository.save(new LogEntry("User created"));
-		userRepository.save(user);
+		return userRepository.save(user);
+	}
+
+	@Override
+	public void deleteUserById(Long id) {
+		userRepository.deleteById(id);
 	}
 }
