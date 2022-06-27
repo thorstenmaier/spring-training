@@ -3,6 +3,7 @@ package com.trivadis.spring.user.service;
 import com.trivadis.spring.user.domain.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -31,8 +32,8 @@ public class UserServiceTest {
     public static class TestConfig {
         @Bean
         @Primary
-        public LogService dummyLogService() {
-            return s -> {};
+        public LogService mockLogService() {
+            return Mockito.mock(LogService.class);
         }
     }
 }
