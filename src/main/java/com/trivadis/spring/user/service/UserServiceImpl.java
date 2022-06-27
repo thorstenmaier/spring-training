@@ -9,7 +9,14 @@ import java.util.List;
 @Component
 public class UserServiceImpl implements UserService {
 
+	private LogService logService;
+
+	public UserServiceImpl(LogService logService) {
+		this.logService = logService;
+	}
+
 	public List<User> getAllUsers() {
+		logService.log("getAllUsers called");
 		return Arrays.asList(new User("Guenther", "Nubert"), new User("Bud", "Spencer"),
 				new User("Dieter", "Develop"));
 	}
