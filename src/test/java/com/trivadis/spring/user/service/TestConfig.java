@@ -1,17 +1,14 @@
 package com.trivadis.spring.user.service;
 
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
-@Configuration
+@TestConfiguration
 public class TestConfig {
     @Bean
-    public UserService userService(LogService logService) {
-        return new UserServiceImpl(logService);
-    }
-
-    @Bean
-    public LogService logService() {
+    @Primary
+    public LogService dummyLogService() {
         return s -> {};
     }
 }
