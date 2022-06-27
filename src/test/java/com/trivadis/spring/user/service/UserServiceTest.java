@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class) // kann entfallen, da in @SpringBootTest enthalten
-@SpringBootTest
+@SpringBootTest(classes = TestConfig.class)
 public class UserServiceTest {
 
     @Autowired
